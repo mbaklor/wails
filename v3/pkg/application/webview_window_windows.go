@@ -1683,7 +1683,7 @@ func (w *windowsWebviewWindow) setupChromium() {
 	// Prevent efficiency mode by keeping WebView2 visible (fixes issue #2861)
 	// Microsoft recommendation: keep IsVisible = true to avoid efficiency mode
 	// See: https://github.com/MicrosoftEdge/WebView2Feedback/discussions/4021
-	err := chromium.PutIsVisible(true)
+	err = chromium.GetController().PutIsVisible(true)
 	if err != nil {
 		globalApplication.error("Failed to set WebView2 visibility for efficiency mode prevention: %v", err)
 	}
